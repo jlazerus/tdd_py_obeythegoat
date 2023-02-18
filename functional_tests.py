@@ -3,11 +3,11 @@ import unittest
 
 class NewVisitorTest(unittest.TestCase):
 
-    def setup(self):
+    def setUp(self):
         self.browser = webdriver.Firefox()
 
     # Edith has heard about a cool new online to-do app. She goes to to check out its homepage:
-    def teardown(self):
+    def tearDown(self):
         self.browser.quit()
 
     def test_can_start_a_list_and_retrieve_it_later(self):
