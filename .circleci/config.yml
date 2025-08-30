@@ -9,7 +9,8 @@ jobs:
 
       # ✅ bump cache key so we don’t reuse the old Django 1.11 environment
       - restore_cache:
-          key: deps2-{{ .Branch }}-{{ checksum "requirements.txt" }}
+          keys:
+            - deps3-v2-{{ checksum "requirements.txt" }}
 
       - run:
           name: Set up venv and install deps
@@ -21,9 +22,9 @@ jobs:
             pip install --upgrade -r requirements.txt
 
       - save_cache:
-          key: deps2-{{ .Branch }}-{{ checksum "requirements.txt" }}
           paths:
             - "venv"
+          key: deps3-v2-{{ checksum "requirements.txt" }}
 
       - run:
           name: Run tests
